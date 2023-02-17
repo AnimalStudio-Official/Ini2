@@ -1,6 +1,10 @@
 #include <iostream>
+
 #include "IniTwo.hpp"
 
 int main() {
-    std::cout << "Hello Easy C++ project!" << std::endl;
+    file FILE;
+  std::map<string,string> m = FILE.parse_file("test.txt");
+std::cout << m["t"];
+         
 }
