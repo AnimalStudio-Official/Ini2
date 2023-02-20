@@ -28,12 +28,16 @@ file::file()
  
 std::map<string,string> file::parse_file(string filepath)
 {
-        // Read the contents of the file
-        std::string rd;
-        std::ifstream fileifs;
-        fileifs.open(filepath);
-        while(fileifs.good()) rd += fileifs.get();
-        if(!rd.empty()) rd.pop_back();
+// Open the file with the given file path
+std::ifstream fileifs;
+fileifs.open(filepath);
+
+// Read the entire file into a string
+std::string rd;
+while (fileifs.good()) rd += fileifs.get();
+
+// Remove the last character from the string, if it is not empty
+if (!rd.empty()) rd.pop_back();
   
   // Create a KittenLexer and use it to lex the file
    KittenLexer lexer = KittenLexer()
