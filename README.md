@@ -15,3 +15,6 @@ For compiling the source, you would require:
 3. Now we will compile the source code using *make*. If your *g++* points to one of the suitable compilers listed above the simply run 
     
         make
+
+## Credit
+- [CatCareTaker/KittenLexer](https://github.com/CatCareTaker/KittenLexer "CatCareTaker/KittenLexer") For the lexer
