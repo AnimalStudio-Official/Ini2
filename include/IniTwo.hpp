@@ -14,8 +14,8 @@ using namespace std;
 class file
 {
 private:
-    std::string left;
-    std::string right;
+    std::string left; // Declare a string variable to store the left-trimmed string
+    std::string right; // Declare a string variable to store the right-trimmed string
 public:
     file();
     std::map<string,string> parse_file(string filepath);
@@ -59,14 +59,15 @@ std::map<string,string> file::parse_file(string filepath)
 
         std::vector<lexed_kittens> lines;
         std::map<string,string> done;
-        long unsigned int cline = -1;
-        for(auto i : lexed) {
-            if(cline != i.line) {
-                lines.push_back({});
-                cline = i.line;
-            }
-            lines.back().push_back(i);
-        }
+long unsigned int cline = -1; // This variable keeps track of the current line
+
+for(auto i : lexed) { // Loop through all lexed elements
+    if(cline != i.line) { // Check if the line has changed
+        lines.push_back({}); // If so, push a new line to the vector
+        cline = i.line; // Update the current line
+    }
+    lines.back().push_back(i); // Push the current element to the current line
+}
     for(size_t i = 0; i < lines.size(); ++i) {
       if(lines[i].empty()) continue;
       left = lines[i][0].src;
