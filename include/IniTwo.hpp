@@ -1,3 +1,6 @@
+#ifndef INI_HPP
+#define INI_HPP
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -25,12 +28,14 @@ file::file()
  
 std::map<string,string> file::parse_file(string filepath)
 {
+        // Read the contents of the file
         std::string rd;
         std::ifstream fileifs;
         fileifs.open(filepath);
         while(fileifs.good()) rd += fileifs.get();
         if(!rd.empty()) rd.pop_back();
   
+  // Create a KittenLexer and use it to lex the file
    KittenLexer lexer = KittenLexer()
             .add_stringq('"')
             .add_stringq('\'')
@@ -54,7 +59,7 @@ std::map<string,string> file::parse_file(string filepath)
 
         std::vector<lexed_kittens> lines;
         std::map<string,string> done;
-        int cline = -1;
+        long unsigned int cline = -1;
         for(auto i : lexed) {
             if(cline != i.line) {
                 lines.push_back({});
@@ -74,3 +79,5 @@ std::map<string,string> file::parse_file(string filepath)
       }
   return done;
 }
+
+#endif
