@@ -7,7 +7,7 @@
 #include <vector>
 #include <map>
 
-#include "kittenlexer.hpp"
+#include "kittenlexer.hpp" //For using KittenLexer aand lex
 
 using namespace std;
 
